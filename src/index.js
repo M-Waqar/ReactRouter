@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Pagemian from './Pagemian';
+import Page1 from './Page1';
+import Page2 from './Page2';
+import Page3 from './Page3';
+import Paramspage from './Paramspage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <App>
+        <Switch>
+          <Route exact path="/" component={Pagemian} />
+          <Route path="/page1" component={Page1} />
+          <Route path="/page2" component={Page2} />
+          <Route path="/page3" component={Page3} />
+          <Route path="/Paramspage/:id" component={Paramspage} />
+        </Switch>
+      </App>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
